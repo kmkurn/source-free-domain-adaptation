@@ -11,7 +11,7 @@ from anafora import evaluate, timeml
 def path_lines(root, subdir, pattern, replace=None):
     result = []
     prefix = os.path.join(root, subdir)
-    for name in glob.glob(os.path.join(prefix, pattern), recursive=True):
+    for name in sorted(glob.glob(os.path.join(prefix, pattern), recursive=True)):
         if os.path.isfile(name):
             name = name[len(prefix) + 1:]
             if replace is not None:
